@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <main>
+
+            <header class="site-header site-news-detail-header">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2>Learning a fine dining experience</h2>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <section class="news-detail section-padding pt-0">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12">
+                            <img src="{{ object.image.url}}" class="img-fluid news-detail-image" alt="fine dining experience">
+
+                            <div class="col-lg-10 col-10 mx-auto mt-5">
+
+                                <h4 class="mb-3">{{ object.name }}</h4>
+
+                                <p>{{ object.descriptation }}</p>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="comments section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h4 class="text-center mb-4">Comment Box</h4>
+                        </div>
+
+                        <div class="col-lg-7 col-12 mx-auto">
+                            <form class="custom-form comment-form" action="{% url 'news_detail' newss.id %}"  method="get" role="form">
+
+                                <input type="text" name="full_name" id="comment-name" class="form-control" placeholder="Your Name" required>
+
+                                <input type="email" name="email" id="comment-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Your Email" required="">
+
+                                <textarea class="form-control" rows="5" id="comment1" name="subject" placeholder="Write a comment" required></textarea>
+                                <textarea class="form-control" rows="5" id="comment" name="message" placeholder="Write a comment" required></textarea>
+                                <div class="col-lg-3 col-4 mx-auto">
+                                    <button type="submit" class="form-control" id="subscribe">Submit</button>
+                                </div>
+                            </form>
+
+                            <div class="news-author d-flex flex-wrap align-items-center">
+                                <img src="{% static 'images/author/alexander-hipp-iEEBWgY_6lA-unsplash.jpg' %}" class="img-fluid news-author-image" alt="">
+
+                                <div class="ms-4 w-50">
+                                    <p class="mb-2">Donec pharetra tellus nulla, aliquam elementum lorem hendrerit non.</p>
+
+                                    <a href="#">David Martin</a>
+                                </div>
+
+                                <span class="ms-auto">14 hours ago</span>
+                            </div>
+
+                            <div class="news-author d-flex flex-wrap align-items-center">
+                                <img src="{% static 'images/author/shoeib-abolhassani-ojl7T2Ah93U-unsplash.jpg' %}" class="img-fluid news-author-image" alt="">
+
+                                <div class="ms-4 w-50">
+                                    <p class="mb-2">Quisque non libero ut mauris fermentum efficitur ac ut nibh.</p>
+
+                                    <a href="#">Jessica Noel</a>
+                                </div>
+
+                                <span class="ms-auto">3 days ago</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+{% endblock %}
